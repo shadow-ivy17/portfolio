@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: krithee-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: krithee-portfolio
+      - key: CONTACTS_COLLECTION
+        value: krithee-portfolio
+      - key: DB_RECONNECT_INTERVAL_MS
+        value: 15000
